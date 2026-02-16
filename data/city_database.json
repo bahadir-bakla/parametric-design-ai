@@ -1,0 +1,112 @@
+{
+  "cities": {
+    "istanbul": {
+      "name": "Istanbul",
+      "latitude": 41.0082,
+      "longitude": 28.9784,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 1750,
+      "cooling_degree_days": 450
+    },
+    "ankara": {
+      "name": "Ankara",
+      "latitude": 39.9334,
+      "longitude": 32.8597,
+      "timezone": 3,
+      "climate_zone": "Dsb",
+      "heating_degree_days": 2700,
+      "cooling_degree_days": 300
+    },
+    "izmir": {
+      "name": "Izmir",
+      "latitude": 38.4237,
+      "longitude": 27.1428,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 1200,
+      "cooling_degree_days": 600
+    },
+    "antalya": {
+      "name": "Antalya",
+      "latitude": 36.8969,
+      "longitude": 30.7133,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 800,
+      "cooling_degree_days": 750
+    },
+    "bursa": {
+      "name": "Bursa",
+      "latitude": 40.1826,
+      "longitude": 29.0665,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 1900,
+      "cooling_degree_days": 350
+    },
+    "kayseri": {
+      "name": "Kayseri",
+      "latitude": 38.7312,
+      "longitude": 35.4787,
+      "timezone": 3,
+      "climate_zone": "Dsb",
+      "heating_degree_days": 3000,
+      "cooling_degree_days": 200
+    },
+    "trabzon": {
+      "name": "Trabzon",
+      "latitude": 41.0027,
+      "longitude": 39.7168,
+      "timezone": 3,
+      "climate_zone": "Cfa",
+      "heating_degree_days": 1800,
+      "cooling_degree_days": 150
+    },
+    "erzurum": {
+      "name": "Erzurum",
+      "latitude": 39.9055,
+      "longitude": 41.2658,
+      "timezone": 3,
+      "climate_zone": "Dfb",
+      "heating_degree_days": 4500,
+      "cooling_degree_days": 50
+    },
+    "diyarbakir": {
+      "name": "Diyarbakir",
+      "latitude": 37.9144,
+      "longitude": 40.2306,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 2200,
+      "cooling_degree_days": 600
+    },
+    "konya": {
+      "name": "Konya",
+      "latitude": 37.8746,
+      "longitude": 32.4932,
+      "timezone": 3,
+      "climate_zone": "Bsk",
+      "heating_degree_days": 2800,
+      "cooling_degree_days": 250
+    },
+    "gaziantep": {
+      "name": "Gaziantep",
+      "latitude": 37.0662,
+      "longitude": 37.3833,
+      "timezone": 3,
+      "climate_zone": "Csa",
+      "heating_degree_days": 2000,
+      "cooling_degree_days": 500
+    },
+    "samsun": {
+      "name": "Samsun",
+      "latitude": 41.2867,
+      "longitude": 36.33,
+      "timezone": 3,
+      "climate_zone": "Cfa",
+      "heating_degree_days": 1700,
+      "cooling_degree_days": 200
+    }
+  }
+}

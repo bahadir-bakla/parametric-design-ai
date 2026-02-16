@@ -1,0 +1,37 @@
+{
+  "model_name": "microsoft/Phi-3-mini-4k-instruct",
+  "ollama_model_name": "roof-ai",
+  "lora": {
+    "r": 16,
+    "lora_alpha": 32,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "lora_dropout": 0.05,
+    "bias": "none"
+  },
+  "training": {
+    "num_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 2e-4,
+    "lr_scheduler": "cosine",
+    "warmup_steps": 100,
+    "fp16": true,
+    "max_seq_length": 512
+  },
+  "inference": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_new_tokens": 256
+  },
+  "data": {
+    "train_file": "data/training_data.json",
+    "validation_file": "data/validation_data.json",
+    "categories": {
+      "basic_geometry": 200,
+      "modifications": 150,
+      "orientation": 100,
+      "light_analysis": 200,
+      "skylight_optimization": 100
+    }
+  }
+}

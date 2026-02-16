@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <Version>1.0.0</Version>
+    <Title>RoofAI - Parametric Roof Design</Title>
+    <Description>AI-powered conversational roof design for Grasshopper</Description>
+    <Authors>RoofAI Team</Authors>
+    <AssemblyName>RoofAI</AssemblyName>
+    <RootNamespace>RoofAI</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grasshopper" Version="7.13.21348.13001" />
+    <PackageReference Include="RhinoCommon" Version="7.13.21348.13001" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <Target Name="RenameToGHA" AfterTargets="Build">
+    <Copy SourceFiles="$(OutputPath)RoofAI.dll" DestinationFiles="$(OutputPath)RoofAI.gha" SkipUnchangedFiles="false" />
+  </Target>
+
+  <Target Name="CopyToGH" AfterTargets="RenameToGHA" Condition="'$(Configuration)'=='Release'">
+    <Copy SourceFiles="$(OutputPath)RoofAI.gha"
+          DestinationFolder="$(APPDATA)\Grasshopper\Libraries\"
+          SkipUnchangedFiles="true"
+          Condition="Exists('$(OutputPath)RoofAI.gha')" />
+  </Target>
+</Project>

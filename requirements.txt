@@ -1,0 +1,27 @@
+# RoofAI Python Requirements
+# Python 3.10+
+
+# Core ML
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+accelerate>=0.25.0
+
+# Model optimization
+peft>=0.7.0
+bitsandbytes>=0.41.0
+
+# Utilities
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Ollama
+ollama>=0.1.0
+
+# Data processing
+pandas>=2.0.0
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0

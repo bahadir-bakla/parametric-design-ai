@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.so
+venv/
+.venv/
+roofai-env/
+
+# ML / Training
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+roof-ai-v1/
+roof-ai-model/
+wandb/
+runs/
+checkpoints/
+
+# Data (generated)
+data/training_data.json
+data/validation_data.json
+
+# C# / .NET
+plugin/bin/
+plugin/obj/
+plugin/*.user
+plugin/.vs/
+*.suo
+*.cache
+*.dll
+*.exe
+*.gha
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
