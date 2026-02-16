@@ -1,0 +1,33 @@
+{
+  "ollama": {
+    "baseUrl": "http://localhost:11434",
+    "modelName": "roof-ai",
+    "timeoutSeconds": 30,
+    "maxRetries": 3,
+    "temperature": 0.7,
+    "topP": 0.9
+  },
+  "ui": {
+    "maxHistoryMessages": 5,
+    "showTypingIndicator": true,
+    "autoScroll": true,
+    "theme": "light"
+  },
+  "geometry": {
+    "defaultUnits": "meters",
+    "precision": 3,
+    "autoJoinCurves": true,
+    "createGroups": true
+  },
+  "context": {
+    "enableContextAwareness": true,
+    "autoDetectSelection": true,
+    "updateThreshold": 0.1
+  },
+  "logging": {
+    "enabled": true,
+    "logLevel": "info",
+    "logToFile": true,
+    "logPath": "./logs/plugin.log"
+  }
+}

@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  roofai-training:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: roofai-training:latest
+    container_name: roofai-trainer
+    
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    # Environment variables
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+      - TRANSFORMERS_CACHE=/app/.cache/huggingface
+      - HF_HOME=/app/.cache/huggingface
+      - WANDB_DISABLED=true
+    
+    # Volumes for persistence
+    volumes:
+      # Data directory
+      - ./data:/app/data
+      # Model output directory
+      - ./roof-ai-v1:/app/roof-ai-v1
+      # Logs
+      - ./logs:/app/logs
+      # HuggingFace cache (models download once)
+      - huggingface-cache:/app/.cache/huggingface
+    
+    # Working directory
+    working_dir: /app
+    
+    # Command (can be overridden)
+    command: python train_model.py
+    
+    # Keep container running for debugging
+    # command: tail -f /dev/null
+    
+    # Restart policy
+    restart: unless-stopped
+
+  # Alternative service for testing
+  roofai-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: roofai-training:latest
+    container_name: roofai-tester
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    volumes:
+      - ./data:/app/data
+      - ./roof-ai-v1:/app/roof-ai-v1
+      - huggingface-cache:/app/.cache/huggingface
+    
+    working_dir: /app
+    command: python test_suite.py
+    profiles:
+      - test
+
+# Named volumes for persistence
+volumes:
+  huggingface-cache:
+    driver: local

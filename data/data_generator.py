@@ -281,22 +281,22 @@ class RoofAIDataGenerator:
         all_samples = []
 
         print("Generating basic geometry samples...")
-        all_samples.extend(self.generate_basic_geometry(200))
+        all_samples.extend(self.generate_basic_geometry(250))
 
         print("Generating modification samples...")
-        all_samples.extend(self.generate_modifications(150))
+        all_samples.extend(self.generate_modifications(200))
 
         print("Generating orientation samples...")
-        all_samples.extend(self.generate_orientation(100))
+        all_samples.extend(self.generate_orientation(150))
 
         print("Generating light analysis samples...")
-        all_samples.extend(self.generate_light_analysis(200))
+        all_samples.extend(self.generate_light_analysis(250))
 
         print("Generating skylight optimization samples...")
-        all_samples.extend(self.generate_skylight_optimization(100))
+        all_samples.extend(self.generate_skylight_optimization(150))
 
         print("Generating error handling samples...")
-        all_samples.extend(self.generate_error_handling(50))
+        all_samples.extend(self.generate_error_handling(100))
 
         random.shuffle(all_samples)
 
@@ -314,10 +314,10 @@ if __name__ == "__main__":
     generator = RoofAIDataGenerator()
     dataset = generator.generate_full_dataset()
 
-    with open("data/training_data.json", "w", encoding="utf-8") as f:
+    with open("training_data.json", "w", encoding="utf-8") as f:
         json.dump(dataset["train"], f, ensure_ascii=False, indent=2)
 
-    with open("data/validation_data.json", "w", encoding="utf-8") as f:
+    with open("validation_data.json", "w", encoding="utf-8") as f:
         json.dump(dataset["validation"], f, ensure_ascii=False, indent=2)
 
     print(f"\nDataset generated!")
