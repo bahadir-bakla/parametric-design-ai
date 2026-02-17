@@ -56,7 +56,8 @@ class RoofAITrainer:
             self.model_name,
             torch_dtype=torch.float16,
             device_map="auto" if self.device == "cuda" else None,
-            trust_remote_code=True
+            trust_remote_code=True,
+            attn_implementation="eager"
         )
         
         if self.device == "cpu":

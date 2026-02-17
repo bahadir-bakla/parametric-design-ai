@@ -36,7 +36,8 @@ class RoofAITrainer:
             self.model_name,
             torch_dtype=torch.float16,
             device_map="auto",
-            trust_remote_code=True
+            trust_remote_code=True,
+            attn_implementation="eager"
         )
 
         print(f"Model loaded on {self.device}")
