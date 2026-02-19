@@ -45,6 +45,9 @@ COPY data/ ./data/
 COPY model/ ./model/
 COPY tests/ ./tests/
 
+# Clean HuggingFace cache to prevent config conflicts
+RUN rm -rf /app/.cache/huggingface/modules/transformers_modules/* 2>/dev/null || true
+
 # Create directories for outputs
 RUN mkdir -p /app/roof-ai-v1 /app/data /app/logs
 

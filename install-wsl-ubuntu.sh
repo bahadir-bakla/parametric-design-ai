@@ -7,7 +7,7 @@ echo "Ubuntu WSL2 Kurulumu"
 echo "==================================="
 echo ""
 
-# Windows kontrolü
+
 if [[ "$OSTYPE" != "msys" && "$OSTYPE" != "win32" && "$OSTYPE" != "cygwin" ]]; then
     echo "❌ Bu script Windows'ta çalıştırılmalı"
     echo "PowerShell veya Git Bash kullanın"
@@ -29,7 +29,7 @@ fi
 echo ""
 echo "📦 WSL2 etkinleştiriliyor..."
 
-# Enable WSL
+
 powershell.exe -Command "wsl --install" 2>/dev/null || {
     echo "⚠️  WSL zaten kurulu olabilir veya manuel etkinleştirme gerekiyor"
     echo ""

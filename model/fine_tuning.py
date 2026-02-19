@@ -32,8 +32,19 @@ class RoofAITrainer:
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
+        # Model config'ini düzelt (rope_scaling hatası için)
+        from transformers import AutoConfig
+        config = AutoConfig.from_pretrained(self.model_name, trust_remote_code=True)
+        
+        # rope_scaling varsa ama 'type' yoksa düzelt
+        if hasattr(config, 'rope_scaling') and config.rope_scaling is not None:
+            if isinstance(config.rope_scaling, dict) and 'type' not in config.rope_scaling:
+                print("   Fixing rope_scaling config...")
+                config.rope_scaling['type'] = 'linear'
+
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
+            config=config,
             torch_dtype=torch.float16,
             device_map="auto",
             trust_remote_code=True,
